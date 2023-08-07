@@ -1,35 +1,75 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import ReactDOM from 'react-dom';
+import Navbar from './components/Navbar';
+import Products from './components/Products'
+import Categories from './components/Categories';
+import Homepage from './pages/Homepage'
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Cart from './pages/Cart'
+import AllProducts from './pages/AllProducts';
+import AddProduct from './pages/AddProduct';
+import EditProduct from './pages/EditProduct';
+import ProductDetails from './pages/ProductDetails';
 
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import ManageStore from './pages/ManageStore';
+
+const App = () => {
+ 
+  const getToken = () => {
+    return localStorage.getItem('authToken')
+  }
+
+  const LoggedIn = () => {
+    return getToken() ? <Outlet /> : <Navigate to='/login' />
+  }
+
+  const NotLoggedIn = () => {
+    return !getToken() ? <Outlet /> : <Navigate to='/' />
+  }
+  
+  const IsAdmin = () => {
+    return localStorage.getItem('isAdmin') ? <Outlet /> : <Navigate to='/' />
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="App">
+      
+      <Navbar />
+ 
+      <Routes>      
+        <Route path="/" element={ <Homepage /> } />
+        <Route path="/all-products" element={ <AllProducts />} />
+        <Route path="/product-details/:productId" element={<ProductDetails />} />
 
-export default App
+        <Route element={<LoggedIn />}>
+          
+          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/edit-product/:productId" element={<EditProduct />} />
+          <Route path="/cart" element={<Cart />} />
+
+        </Route>
+
+        <Route element={<NotLoggedIn />}>
+
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+
+        </Route>
+
+        <Route element={<IsAdmin />} >
+
+          <Route path="/manage-store" element={<ManageStore />} />
+          <Route path='/add-product' element={<AddProduct />} />
+
+        </Route>
+
+      </Routes>
+      
+    </div>
+  );
+}
+export default App;
