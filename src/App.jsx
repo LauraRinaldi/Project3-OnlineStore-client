@@ -13,9 +13,10 @@ import AddProduct from './pages/AddProduct';
 import EditProduct from './pages/EditProduct';
 import ProductDetails from './pages/ProductDetails';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet, Navigate } from 'react-router-dom';
+
 import ManageStore from './pages/ManageStore';
+import Announcement from './components/Announcement';
 
 const App = () => {
  
@@ -37,7 +38,7 @@ const App = () => {
 
   return (
     <div className="App">
-      
+      <Announcement/>
       <Navbar />
  
       <Routes>      

@@ -26,10 +26,13 @@ const AddProduct = () => {
         // let newArray = [...newProduct.categories]
         // newArray.push(e.value)
 
+        let values = e.map((element) => element.value)
+        console.log("values", values)
 
+        setNewProduct((prev) => ({...prev, categories: values}))
 
     
-                setNewProduct((prev) => ({...prev, categories: e}))
+                // setNewProduct((prev) => ({...prev, categories: e}))
                 
     }
 
@@ -53,8 +56,11 @@ const AddProduct = () => {
     const handleSizeChange = (e) => {
 
         console.log("Select change", e)
+
+                let values = e.map((element) => element.value)
+                console.log("values", values)
     
-                setNewProduct((prev) => ({...prev, size: e}))
+                setNewProduct((prev) => ({...prev, size: values}))
     
     }
 
@@ -89,6 +95,14 @@ const AddProduct = () => {
         post('/product', newProduct)
             .then((response) => {
                 console.log("new products", response.data)
+                setNewProduct({
+                    title: '',
+                    description: '',
+                    img: '',
+                    categories: [],
+                    size: ['small', 'medium'],
+                    price: 0,
+                })
             })
             .catch(err => console.log(err))
     }

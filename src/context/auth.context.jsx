@@ -29,7 +29,7 @@ function AuthProvider({ children }) {
 
     get('/auth/verify')
       .then((response) => {
-console.log("user", response.data)
+        console.log("user", response.data)
         const user = response.data;
         if (response.data.isAdmin) {
             localStorage.setItem("isAdmin", true)

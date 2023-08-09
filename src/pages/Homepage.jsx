@@ -1,11 +1,22 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Categories from '../components/Categories';
+import AllProducts from './AllProducts';
+import styled from 'styled-components'
+import Announcement from '../components/Announcement';
+import Slider from '../components/Slider';
+import Newsletter from '../components/Newsletter';
 
 
 const Homepage = () => {
   return (
     <div>
-   <h1>Homepage</h1>
+   {/* <Announcement/> */}
+   <AllProducts/>
+   {/* <Newsletter/> */}
+   {/* <Categories/> */}
+   {/* <Slider/> */}
+   {/* <Footer/> */}
   </div>
 );
 }
