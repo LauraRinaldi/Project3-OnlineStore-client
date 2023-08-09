@@ -1,11 +1,14 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { CartContext } from "../context/cart.context"
+import { AuthContext } from "../context/auth.context"
 import { post } from "../services/auth.service"
 import ProductPreview from "../components/Productpreview"
 
 const Cart = () => {
 
-  const { cart, setCart } = useContext(CartContext)
+  const { cart, setCart, getCart } = useContext(CartContext)
+
+  const { user } = useContext(AuthContext)
 
   const removeItem = (id) => {
     
@@ -28,6 +31,16 @@ const Cart = () => {
     
   }
 
+  useEffect(() => {
+
+    if (user) {
+
+        getCart()
+    }
+
+
+  }, [user])
+
 
   return (
     <div>
@@ -47,18 +60,38 @@ const Cart = () => {
 
             <div>
 
-              {cart.products.map((product) => {
-                return (
-                  <div key={product._id}>
-                    <ProductPreview product={product} />
-                    <button onClick={()=>removeItem(product._id)} >Remove</button>
-                  </div>
-                )
-              })}
+                {cart.products && 
+                
+                    <>
+                    
+                            {cart.products.length ? 
+                            
+                            <>
+                            
+                                {cart.products.map((product) => {
+                                return (
+                                    <div key={product._id}>
+                                    <ProductPreview product={product.product} />
+                                    <button onClick={()=>removeItem(product._id)} >Remove</button>
+                                    </div>
+                                )
+                                })}
+                            
+                            </>
+            
+                            : <p>Loading...</p>
+                                
+                        } 
+                    
+                    <h5>Subtotal: ${cart.subtotal}</h5>
+                    <h5>Tax: {getPercentage(cart.tax)}</h5>
+                    <h4>Total: ${cart.total.toFixed(2)}</h4>
+                    </>
+                
+                }
 
-              <h5>Subtotal: ${cart.subtotal}</h5>
-              <h5>Tax: {getPercentage(cart.tax)}</h5>
-              <h4>Total: ${cart.total.toFixed(2)}</h4>
+
+
 
             </div>
           

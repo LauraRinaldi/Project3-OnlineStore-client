@@ -56,7 +56,7 @@ const ProductDetails = () => {
             post('/cart', body)
                 .then((response) => {
                     console.log("New cart", response.data)
-                    setCart(response.data)
+                    // setCart(response.data)
                     navigate('/cart')
                 })
                 .catch((err) => {
@@ -78,7 +78,7 @@ const ProductDetails = () => {
             put(`/cart/${user._id}/${cart._id}`, body)
             .then((response) => {
                 console.log("Updated cart", response.data)
-                setCart(response.data)
+                // setCart(response.data)
                 navigate('/cart')
             })
             .catch((err) => {
@@ -126,6 +126,7 @@ const ProductDetails = () => {
                         {!isAdmin() &&  
                             <>
                                 <button onClick={addToCart} >Add to Cart</button>
+                                
                             </>
                         }
                     

@@ -13,10 +13,7 @@ const CartProvider = ({ children }) => {
 
     const { user } = useContext(AuthContext)
 
-    useEffect(() => {
-
-    if (user) {
-
+    const getCart = () => {
         get(`/cart/find/${user._id}`)
         .then((response) => {
             if (response.data.message) {
@@ -30,6 +27,13 @@ const CartProvider = ({ children }) => {
         .catch((err) => {
             console.log(err)
         })
+    }
+
+    useEffect(() => {
+
+    if (user) {
+
+        getCart()
 
     }
        
@@ -38,7 +42,7 @@ const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ cart, setCart }} >
+        <CartContext.Provider value={{ cart, setCart, getCart }} >
             {children}
         </CartContext.Provider>
     )

@@ -11,12 +11,12 @@ const AddProduct = () => {
         description: '',
         img: '',
         categories: [],
-        size: ['small', 'medium'],
+        size: ['0-3 months', '6 months', '9 months', '12 months', '18 months', '2 years', '4 years', '6 years','8 years', '10 years', '12 years', '14 years'],
         price: 0,
         // inStock: true
     })
 
-    const categoriesOptions = [{label: 'boy', value: 'boy'}, {label: 'girl', value: "girl"}]
+    const categoriesOptions = [{label: 'Newborn 0-18 months', value: 'Newborn 0-18 months'}, {label: 'Boy 1-14 years', value: 'Boy 1-14 years'}, {label: 'Girl 1-14 years', value: "Girl 1-14 years"}]
 
     const handleCategoryChange = (e) => {
 
@@ -51,7 +51,7 @@ const AddProduct = () => {
     //     )
     // }
 
-    const sizesOptions = [{label:'small', value: "small"}, {label:'medium', value: 'medium'}]
+    const sizesOptions = [{label:'0-3 months', value: "0-3 months"}, {label:'6 months', value: '6 months'}, {label:'9 months', value: '9 months'}, {label:'12 months', value: '12 months'}, {label:'18 months', value: '18 months'}, {label:'2 years', value: '2 years'}, {label:'4 years', value: '4 years'}, {label:'6 years', value: '6 years'}, {label:'8 years', value: '8 years'}, {label:'10 years', value: '10 years'}, {label:'12 years', value: '12 years'}, {label:'14 years', value: '14 years'}]
 
     const handleSizeChange = (e) => {
 

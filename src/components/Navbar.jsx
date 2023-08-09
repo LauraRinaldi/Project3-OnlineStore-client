@@ -92,6 +92,7 @@ const Navbar = () => {
         if (!cart) {
             setCartNumber(0)
         } else if (!cart.message) {
+            console.log("Navbar length ===>", cart.cart)
             setCartNumber(cart.products.length)
         } else {
             setCartNumber(0)
@@ -134,7 +135,7 @@ const Navbar = () => {
             <>
                 {!isAdmin() &&          
                     <Link to='cart'>
-                        <button>See Cart</button>
+                        
                     </Link>  
                 }
                 <Greeting><span>{user && <span>Welcome {user.username}!</span>}</span></Greeting>
@@ -157,9 +158,9 @@ const Navbar = () => {
           <MenuItem><Link to="/login"> <button>Login</button> </Link></MenuItem>
         </>
       )}
-        <MenuItem>
+        {/* <MenuItem>
       <Link to="/all-products">See Products</Link>
-        </MenuItem>
+        </MenuItem> */}
         
 
      </Right>

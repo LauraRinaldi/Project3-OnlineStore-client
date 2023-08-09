@@ -27,7 +27,7 @@ const AllProducts = () => {
   return (
     <Container>
     <div id="all-products"> 
-        <h1>All products</h1>
+        <h1>Our products</h1>
 
         {
             products.map((product) => {

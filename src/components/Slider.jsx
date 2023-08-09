@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ChevronLeftRoundedIcon, ChevronRightRoundedIcon } from '@mui/icons-material/ChevronLeftRounded';
+
 
 const Container = styled.div`
   width: 100%;
