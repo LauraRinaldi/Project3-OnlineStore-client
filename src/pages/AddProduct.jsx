@@ -1,10 +1,16 @@
-import { useState } from "react"
+import { useState, useContext} from "react"
+import { ProductContext } from "../context/product.context"
 import { post } from "../services/auth.service"
+import { useNavigate } from "react-router-dom"
 
 import Select from 'react-select'
 
 
 const AddProduct = () => {
+
+    const { products, setProducts } = useContext(ProductContext)
+
+    const navigate = useNavigate()
 
     const [newProduct, setNewProduct] = useState({
         title: '',
@@ -95,14 +101,9 @@ const AddProduct = () => {
         post('/product', newProduct)
             .then((response) => {
                 console.log("new products", response.data)
-                setNewProduct({
-                    title: '',
-                    description: '',
-                    img: '',
-                    categories: [],
-                    size: ['small', 'medium'],
-                    price: 0,
-                })
+                setProducts([...products, response.data])
+                navigate('/all-products')
+
             })
             .catch(err => console.log(err))
     }

@@ -1,0 +1,20 @@
+.size-select {
+  width: 20vw
+}
+
+.row {
+  display: flex;
+  width: 96%;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 2%;
+}
+
+.column {
+  flex: 50%;
+
+}
+
+.description {
+  width: 80%
+}

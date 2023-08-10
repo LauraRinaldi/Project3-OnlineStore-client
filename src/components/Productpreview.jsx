@@ -4,15 +4,17 @@ const ProductPreview = ({ product }) => {
     
   return (
 
-
+<>
         <Link to={`/product-details/${product._id}`}>
-          <div>
+          {/* <div> */}
             <img id="preview" src={product.img} alt="product" />
-            <p>{product.size}</p>
-            <p>{product.price}</p>
-          </div>
+            {/* <p>{product.size}</p> */}
+            
+          {/* </div> */}
         </Link>
-
+        <p>{product.desc}</p>
+        <h4>${product.price}</h4>
+        </>
 
   );
 };

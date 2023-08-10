@@ -26,6 +26,7 @@ const AllProducts = () => {
 
   return (
     <Container>
+        
     <div id="all-products"> 
         <h1>Our products</h1>
 
@@ -39,6 +40,7 @@ const AllProducts = () => {
             })
         }
     </div>
+    
     </Container>
   )
 }

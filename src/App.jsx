@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './App.css'
 import ReactDOM from 'react-dom';
 import Navbar from './components/Navbar';
-import Products from './components/Products'
 import Categories from './components/Categories';
 import Homepage from './pages/Homepage'
 import Login from './pages/Login';
