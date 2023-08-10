@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const SERVER_URL = "http://localhost:4000"
+import { SERVER_URL } from "./SERVER_URL"
 
 export const get = (route) => {
     let token = localStorage.getItem('authToken')
