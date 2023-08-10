@@ -2,9 +2,9 @@
 
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-
+// import "bootstrap/dist/css/bootstrap.min.css"
 import { Link, useNavigate } from "react-router-dom";
-
+import '../App.css'
 import { post } from '../services/auth.service'
 
 function LoginPage() {
@@ -38,28 +38,37 @@ function LoginPage() {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })
+
+
   };
   
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="cont">
+        <div className="form sign-in"></div>
+      <h3>Welcome back,</h3>
 
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
+        <label>
+            <span>Email:</span>
+            
         <input 
           type="email"
           name="email"
           value={email}
           onChange={handleEmail}
         />
+        </label>
 
-        <label>Password:</label>
+        <label>
+            <span>Password:</span>
+            
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
+        </label>
 
         <button type="submit">Login</button>
       </form>

@@ -47,41 +47,48 @@ function Register() {
   
   return (
     <div className="Register">
-      <h1>Register</h1>
+        {/* <div className="form sign-in"> */}
+      <h3>Register</h3>
 
       <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
+        <label>
+            <span>Email:</span>
+        
         <input 
           type="email"
           name="email"
           value={user.email}
           onChange={handleTextChange}
         />
+        </label>
 
-        <label>Password:</label>
+        <label>
+            <span>Password:</span>
         <input 
           type="password"
           name="password"
           value={user.password}
           onChange={handleTextChange}
         />
-
-        <label>Full Name:</label>
+    </label>
+        <label>
+            <span>Full Name:</span>
         <input 
           type="text"
           name="fullname"
           value={user.fullname}
           onChange={handleTextChange}
         />
-
-        <label>Username:</label>
+        </label>
+        <label>
+            <span>Username:</span>
         <input 
           type="text"
           name="username"
           value={user.username}
           onChange={handleTextChange}
         />
-
+        </label>
         <button type="submit">Register</button>
       </form>
 
@@ -90,6 +97,7 @@ function Register() {
       <p>Already have account?</p>
       <Link to="/login"> Login</Link>
     </div>
+    // </div>
   )
 }
 

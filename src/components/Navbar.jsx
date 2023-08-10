@@ -145,7 +145,7 @@ const Navbar = () => {
                 
                 {isAdmin() && (
                     
-                     <Link to="manage-store">Manage Store</Link>
+                     <MenuItem><Link to="manage-store"> <button>Manage Store</button></Link></MenuItem>
                     
                 )}  
         </>

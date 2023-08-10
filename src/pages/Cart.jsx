@@ -24,6 +24,16 @@ const Cart = () => {
       })
   
   }
+  const proceedToCheckout = () => {
+    post(`/stripe/create-checkout-session`, { cart })
+      .then((response) => {
+        console.log("product", response.data);
+        window.location.href = response.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const getPercentage = (num) => {
 
@@ -90,8 +100,7 @@ const Cart = () => {
                 
                 }
 
-
-
+<button onClick={proceedToCheckout}>checkout</button>
 
             </div>
           

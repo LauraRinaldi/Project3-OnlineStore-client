@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import './Footer.css'
+import {FaTwitter, FaFacebookSquare, FaInstagram} from 'react-icons/fa'
   
 function Footer() {
     return (
@@ -38,9 +39,9 @@ function Footer() {
           <div className="footer-col">
             <h4>follow us</h4>
             <div className="social-links">
-              <a href="https://www.facebook.com/people/Juniorinstock/100067192835936/" target="_blank"><i className="fab fa-facebook-f"></i></a>
-              <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fjuniorinstock" target="_blank"><i className="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/juniorinstock/" target="_blank"><i className="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/people/Juniorinstock/100067192835936/" target="_blank"><FaFacebookSquare/><i className="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fjuniorinstock" target="_blank"><FaTwitter/><i className="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/juniorinstock/" target="_blank"><i className="fab fa-instagram"><FaInstagram/></i></a>
             </div>
           </div>
         </div>

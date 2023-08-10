@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { ProductContext } from '../context/product.context'
 import ProductPreview from "../components/Productpreview"
 import styled from 'styled-components'
+import '../App.css'
 
 const Container = styled.div`
     padding: 20px;
@@ -26,9 +27,11 @@ const AllProducts = () => {
 
   return (
     <Container>
-        
+
+     <div class ="row">
     <div id="all-products"> 
         <h1>Our products</h1>
+        <div class ="column">
 
         {
             products.map((product) => {
@@ -40,7 +43,8 @@ const AllProducts = () => {
             })
         }
     </div>
-    
+    </div>  
+    </div>
     </Container>
   )
 }

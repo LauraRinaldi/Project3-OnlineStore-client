@@ -7,7 +7,7 @@ import { CartContext } from "../context/cart.context"
 import { post, put, serverDelete } from "../services/auth.service"
 
 import Select from 'react-select'
-
+import '../App.css'
 
 const ProductDetails = () => {
 
@@ -197,32 +197,8 @@ const ProductDetails = () => {
 
                         <p class="description">{product.desc}</p>
                         {/* <p>{product.categories}</p> */}
-                        <h5>${product.price}</h5>
-                        <>
-                            {/* 
-                            {
-
-                                sock.comments.length ? (
-
-                                    <>
-                                        {
-                                            sock.comments.map((comment) => {
-                                                return (
-                                                    <>
-                                                        <p>{comment.comment}</p>
-                                                        <h6>-{comment.author.username}</h6>
-                                                    </>
-                                                )
-                                            })
-                                        }
-                                    </>                                    
-
-                                ) : null
-
-  
-
-                            } */}
-                        </>
+                        <h4>${product.price}</h4>
+                        
                     </div>
 
                     : <p>Loading...</p>
