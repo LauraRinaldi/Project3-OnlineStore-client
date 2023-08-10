@@ -1,1 +1,1 @@
-export const SERVER_URL = "https://juniorinstock-server.adaptable.app";
+export const SERVER_URL = "https://juniorinstock-server.adaptable.app"
